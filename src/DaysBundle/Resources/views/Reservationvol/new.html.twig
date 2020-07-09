@@ -1,0 +1,48 @@
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+
+<!-- Bootstrap -->
+<link type="text/css" rel="stylesheet" href="{{ asset('colorlib-booking-19/css/bootstrap.min.css') }}" />
+
+<!-- Custom stlylesheet -->
+<link type="text/css" rel="stylesheet" href="{{ asset('colorlib-booking-19/css/style.css') }}" />
+
+
+    <div id="booking" class="section">
+        <div class="section-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="booking-cta">
+                            <h1>Book your flight today</h1>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate laboriosam numquam at</p>
+                        </div>
+                    </div>
+                    <div class="col-md-7 col-md-offset-1">
+                        <div class="booking-form">
+
+                                {{ form_start(form) }}
+
+
+
+
+                                            Le Nombre De Place : {{ form_widget(form.nbplace )}}
+
+
+
+
+                                    <input type="submit" href="{{ path('affiche_vol') }}" value="Reserver" />
+
+                                {{ form_end(form) }}
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+

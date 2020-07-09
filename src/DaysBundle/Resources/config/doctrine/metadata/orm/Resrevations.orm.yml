@@ -1,0 +1,25 @@
+Resrevations:
+    type: entity
+    table: resrevations
+    id:
+        idRes:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_res
+            generator:
+                strategy: IDENTITY
+    fields:
+        dateRes:
+            type: date
+            nullable: false
+            column: date_res
+        nbPersonnes:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: nb_personnes
+    lifecycleCallbacks: {  }

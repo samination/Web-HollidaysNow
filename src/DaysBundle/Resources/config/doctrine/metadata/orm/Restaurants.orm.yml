@@ -1,0 +1,49 @@
+Restaurants:
+    type: entity
+    table: restaurants
+    id:
+        idResto:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_resto
+            generator:
+                strategy: IDENTITY
+    fields:
+        nbPlacesTotResto:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: nb_places_tot_resto
+        nomResto:
+            type: string
+            nullable: false
+            length: 1000
+            options:
+                fixed: false
+            column: nom_resto
+        adresseResto:
+            type: string
+            nullable: false
+            length: 1000
+            options:
+                fixed: false
+            column: adresse_resto
+        typeResto:
+            type: string
+            nullable: false
+            length: 1000
+            options:
+                fixed: false
+            column: type_resto
+        specialiteResto:
+            type: string
+            nullable: false
+            length: 1000
+            options:
+                fixed: false
+            column: specialite_resto
+    lifecycleCallbacks: {  }

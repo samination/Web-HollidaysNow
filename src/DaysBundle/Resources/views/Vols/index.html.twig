@@ -1,0 +1,95 @@
+{%  extends 'baseadmin.html.twig' %}
+{% block contentadmin %}
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+
+    <h1>liste des vols</h1>
+
+    <table id="example" class="display">
+        <thead>
+        <tr>
+            <th>Idvol</th>
+            <th>Datedepart</th>
+            <th>Datearrive</th>
+            <th>Villedepart</th>
+            <th>Villearrive</th>
+            <th>Prix(€)</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Nbplaces</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for vol in vols %}
+            <tr>
+                <td><a href="{{ path('afficher_un_Vol', { 'id': vol.idVol }) }}">{{ vol.idVol }}</a></td>
+                <td>{% if vol.dateDepart %}{{ vol.dateDepart|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if vol.dateArrive %}{{ vol.dateArrive|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ vol.villeDepart }}</td>
+                <td>{{ vol.villeArrive }}</td>
+                <td>{{ vol.prix }}</td>
+                <td>{{ vol.description }}</td>
+                <td>{{ vol.type }}</td>
+                <td>{{ vol.nbPlaces }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a  class="btn btn-danger"  href="{{ path('supprimer_Vol', { 'id': vol.idVol }) }}">Suprrimer</a>
+                        </li>
+
+                    </ul>
+                </td>
+
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+
+
+{% endblock %}
+{% block Scripts %}
+    <!-- Insert this at the end of your body element, but before the closing tag -->
+    <script src="{{ asset('bundles/datatables/js/datatables.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            $('#example').dataTable( {
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
+                }
+            } );
+        } );
+    </script>
+{% endblock %}

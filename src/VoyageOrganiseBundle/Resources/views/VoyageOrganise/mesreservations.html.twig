@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+{% block body2 %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+{%set flashbag_notices=app.session.flashbag.get('info')%}
+        {%if flashbag_notices is not empty%}
+            <center><ul class="success" >{%for info in flashbag_notices%}
+                    {{info}}
+                {%endfor%}
+            </ul></center>{%endif%}
+
+
+<table border="1">
+    <tr>
+
+        <th>Nombre de place</th>
+        <th>Prix</th>
+
+
+    </tr>
+    {% for reservation in reservation %}
+        <tr>
+            <td>
+                {{ reservation.nbrplace }}
+            </td>
+
+            <td>
+                {{ reservation.prix}}
+            </td>
+
+            <td><a href="{{ path('supp_reservvo',{'id':reservation.idReservation}) }}" >Supprimer</a></td>
+
+
+
+
+        </tr>
+    {% endfor %}
+</table>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+{% endblock %}

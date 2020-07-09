@@ -1,0 +1,34 @@
+{% extends 'baseadmin2.html.twig' %}
+ {% block contentadmin2 %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h1>Modif un hebergement</h1>
+     {%set flashbag_notices=app.session.flashbag.get('notice')%}
+     {%if flashbag_notices is not empty%}
+         <center><ul class="error" >{%for notice in flashbag_notices%}
+                 {{notice}}
+             {%endfor%}
+         </ul></center>{%endif%}
+     {%set flashbag_notices=app.session.flashbag.get('info')%}
+     {%if flashbag_notices is not empty%}
+         <center><ul class="success" >{%for info in flashbag_notices%}
+                 {{info}}
+             {%endfor%}
+         </ul></center>{%endif%}
+{{ form(form) }}
+
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+ {% endblock %}

@@ -1,0 +1,66 @@
+gestion_activite_homepage:
+    path:     /loula
+    defaults: { _controller: GestionActiviteBundle:Default:index }
+Index:
+    path:     /afficheractivite
+    defaults: { _controller: GestionActiviteBundle:Activite1:index }
+aller_a_valider:
+  path:     /affichervalider
+  defaults: { _controller: GestionActiviteBundle:Activite1:index3 }
+afficher_par_id:
+  path:     /afficherctiviteparid.{format}
+  defaults: { _controller: GestionActiviteBundle:Activite1:afficherparidagence,format: html }
+  requirements:
+    format: json
+ajouter_activite:
+    path:     /ajouteractivite.{format}
+    defaults: { _controller: GestionActiviteBundle:Activite1:new, format: html }
+    requirements:
+      format: json
+supprimer_activite:
+  path:     /supprimeractivite/{idActivite}.{format}
+  defaults: { _controller: GestionActiviteBundle:Activite1:delete, format: html }
+  requirements:
+    format: json
+valider_activite:
+  path:     /valideractivite/{idActivite}
+  defaults: { _controller: GestionActiviteBundle:Activite1:valider }
+afficher_activite:
+  path:     /affichact/{idActivite}
+  defaults: { _controller: GestionActiviteBundle:Activite1:show }
+afficher_activite2:
+  path:     /affichact2/{idActivite}
+  defaults: { _controller: GestionActiviteBundle:Activite1:show2 }
+moidifier_activite:
+  path:     /modifieractivite/{idActivite}.{format}
+  defaults: { _controller: GestionActiviteBundle:Activite1:edit, format: html }
+  requirements:
+    format: json
+Afficher_les_reservation_act:
+  path:     /afficherreservation
+  defaults: { _controller: GestionActiviteBundle:ReservationActivite1:index }
+supprimer_reservation_act:
+  path:     /supprimerreservation/{idReservationa}
+  defaults: { _controller: GestionActiviteBundle:ReservationActivite1:delete }
+afficher_une_reservation:
+  path:     /affichres/{idReservationa}
+  defaults: { _controller: GestionActiviteBundle:ReservationActivite1:show }
+moidifier_reservation_act:
+  path:     /modifierreservation/{idReservationa}
+  defaults: { _controller: GestionActiviteBundle:ReservationActivite1:edit }
+ajouter_reservation_act:
+  path:     /ajouterreservation2/{idActivite}.{format}
+  defaults: { _controller: GestionActiviteBundle:ReservationActivite1:new, format: html }
+  requirements:
+    format: json
+Afficher_les_activite_a_reser:
+  path:     /afficheractresr.{format}
+  defaults: { _controller: GestionActiviteBundle:ReservationActivite1:annonce, format: html }
+  requirements:
+      format: json
+statestique:
+  path:     /statestique
+  defaults: { _controller: GestionActiviteBundle:statestique:index }
+statestique2:
+  path:     /statestique2
+  defaults: { _controller: GestionActiviteBundle:statestique:index2 }

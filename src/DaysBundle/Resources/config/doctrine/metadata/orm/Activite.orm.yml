@@ -1,0 +1,81 @@
+Activite:
+    type: entity
+    table: activite
+    id:
+        idActivite:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: Id_activite
+            generator:
+                strategy: IDENTITY
+    fields:
+        nom:
+            type: string
+            nullable: false
+            length: 60
+            options:
+                fixed: false
+            column: Nom
+        type:
+            type: string
+            nullable: false
+            length: 60
+            options:
+                fixed: false
+            column: Type
+        adresse:
+            type: string
+            nullable: false
+            length: 60
+            options:
+                fixed: false
+            column: Adresse
+        pays:
+            type: string
+            nullable: false
+            length: 60
+            options:
+                fixed: false
+            column: Pays
+        region:
+            type: string
+            nullable: false
+            length: 60
+            options:
+                fixed: false
+            column: Region
+        description:
+            type: string
+            nullable: false
+            length: 60
+            options:
+                fixed: false
+            column: Description
+        prix:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+            column: Prix
+        idagence:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: idAgence
+        placedisponible:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: PlaceDisponible
+        valider:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+    lifecycleCallbacks: {  }

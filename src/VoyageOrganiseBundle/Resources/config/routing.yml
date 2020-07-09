@@ -1,0 +1,30 @@
+voyage_organise_homepage:
+    path:     /44
+    defaults: { _controller: VoyageOrganiseBundle:Default:index }
+voyageorganise_ajout:
+    path:     /ajoutVoayegorg
+    defaults: { _controller: VoyageOrganiseBundle:VoyageOrganise:AjouterVoyageorg }
+voyageorganise_affiche:
+    path:     /afficheVoyageorg
+    defaults: { _controller: VoyageOrganiseBundle:VoyageOrganise:afficherVoyageorg }
+voyageorganise_afficheuser:
+     path:     /afficheVoyageorguser
+     defaults: { _controller: VoyageOrganiseBundle:VoyageOrganise:afficherVoyageorguser }
+voyageorganise_supp:
+    path:     /suppVoyageorg/{id}
+    defaults: { _controller: VoyageOrganiseBundle:VoyageOrganise:supprimerVoyageorg }
+voyageorganise_modif:
+    path:     /modifVoyageorg/{id}
+    defaults: { _controller: VoyageOrganiseBundle:VoyageOrganise:modifierVoyageorg }
+voyageorganise_reserv:
+  path:     /reservVoyageorg/{id}
+  defaults: { _controller: VoyageOrganiseBundle:ReserverVoyageOrganise:AjouterReservationVoyageorg }
+reservvoyageorg_affiche:
+    path:     /affichereserv
+    defaults: { _controller: VoyageOrganiseBundle:ReserverVoyageOrganise:affRes }
+supp_reservvo:
+    path:     /annulreservvoy/{id}
+    defaults: { _controller: VoyageOrganiseBundle:ReserverVoyageOrganise:AnnulerRes }
+recherche_voyagepays:
+  path:     /recherchepays
+  defaults: { _controller: VoyageOrganiseBundle:VoyageOrganise:RecherchePays }

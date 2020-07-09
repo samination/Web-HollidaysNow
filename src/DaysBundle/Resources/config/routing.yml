@@ -1,0 +1,54 @@
+days_homepage:
+    path:     /11
+    defaults: { _controller: DaysBundle:Default:index }
+Index:
+    path:     /index
+    defaults: { _controller: DaysBundle:Holidays:index }
+afficher_tous_les_vols:
+      path:     /aff
+      defaults: { _controller: DaysBundle:Vols:index }
+Index2:
+  path:     /index2
+  defaults: { _controller: DaysBundle:Reservationvol:annonce2 }
+Index3:
+  path:     /index3
+  defaults: { _controller: DaysBundle:Reservationvol:annonce3 }
+afficher_par_id_vol:
+  path:     /index4.{format}
+  defaults: { _controller: DaysBundle:Vols:afficherparidagence,format: html }
+  requirements:
+    format: json
+affiche_vol:
+    path:     /afficheVol.{format}
+    defaults: { _controller: DaysBundle:Reservationvol:annonce,format: html}
+    requirements:
+      format: json
+ajouter_vol:
+    path:     /ajoutervol.{format}
+    defaults: { _controller: DaysBundle:Vols:new,format: html}
+    requirements:
+      format: json
+supprimer_Vol:
+    path:     /supprimervol/{id}
+    defaults: { _controller: DaysBundle:Vols:supprimer}
+pusher:
+    path:     /pusher
+    defaults: { _controller: DaysBundle:pusher:}
+modifier_Vol:
+    path:     /modifiervol/{idVol}.{format}
+    defaults: { _controller: DaysBundle:Vols:edit,format: html}
+    requirements:
+      format: json
+supp_Vol:
+    path:     /suppvol/{idVol}.{format}
+    defaults: { _controller: DaysBundle:Vols:delete,format: html}
+    requirements:
+      format: json
+afficher_un_Vol:
+    path:     /afficherunvol/{id}
+    defaults: { _controller: DaysBundle:Vols:show}
+ajouter_reservation_vol:
+  path:     /ajouterreser/{idVol}.{format}
+  defaults: { _controller: DaysBundle:Reservationvol:new, format: html}
+  requirements:
+    format: json

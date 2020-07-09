@@ -1,0 +1,33 @@
+Reserveractivite:
+    type: entity
+    table: reserveractivite
+    id:
+        idReservationa:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: Id_reservationa
+            generator:
+                strategy: IDENTITY
+    fields:
+        idActivite:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: Id_activite
+        idUser:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: Id_user
+        idAgence:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: Id_agence
+    lifecycleCallbacks: {  }

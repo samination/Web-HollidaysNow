@@ -1,0 +1,83 @@
+Utilisateur:
+    type: entity
+    table: utilisateur
+    id:
+        idUser:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: Id_user
+            generator:
+                strategy: IDENTITY
+    fields:
+        nomUser:
+            type: string
+            nullable: false
+            length: 60
+            options:
+                fixed: false
+            column: Nom_user
+        prenomUser:
+            type: string
+            nullable: false
+            length: 60
+            options:
+                fixed: false
+            column: Prenom_user
+        emailUser:
+            type: string
+            nullable: false
+            length: 60
+            options:
+                fixed: false
+            column: Email_user
+        mdpUser:
+            type: string
+            nullable: false
+            length: 60
+            options:
+                fixed: false
+            column: Mdp_user
+        sexeUser:
+            type: string
+            nullable: false
+            length: 60
+            options:
+                fixed: false
+            column: Sexe_user
+        connecterUser:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+            column: connecter_user
+        adresseUser:
+            type: string
+            nullable: false
+            length: 60
+            options:
+                fixed: false
+            column: Adresse_user
+        telephoneUser:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: Telephone_user
+        roleUser:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+            column: Role_user
+        bloquer:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+    lifecycleCallbacks: {  }

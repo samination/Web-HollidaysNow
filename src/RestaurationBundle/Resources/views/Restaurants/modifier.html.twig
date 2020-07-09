@@ -1,0 +1,87 @@
+{% extends 'baseadmin2.html.twig' %}
+ {% block contentadmin2 %}
+<html>
+<head>
+    <title>Modifier restaurant</title>
+</head>
+<body>
+    <fieldset style="width: 50%">
+        <form method="POST">
+            <table>
+                <tr>
+                    <td>Nom :</td>
+                    <td><input type="text" name="NomResto" value="{{ restaurants.NomResto }}"></td>
+                </tr>
+                <tr>
+                    <td>Adresse :</td>
+                    <td><input type="text" name="AdresseResto" value="{{ restaurants.AdresseResto }}"></td>
+                </tr>
+                <tr>
+                    <td>Spécialité :</td>
+                    <td><input type="text" name="SpecialiteResto" value="{{ restaurants.SpecialiteResto }}"></td>
+                </tr>
+                <tr>
+                    <td>Type :</td>
+                    <td><input type="text" name="TypeResto" value="{{ restaurants.TypeResto }}"></td>
+                </tr>
+                <tr>
+                    <td>Nombre de places :</td>
+                    <td><input type="number" name="NbPlacesTotResto" value="{{ restaurants.NbPlacesTotResto }}"></td>
+                </tr>
+                <tr>
+                    <td>Id agence:</td>
+                    <td><input type="number" name="IdAgence" value="{{ restaurants.IdAgence }}"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Enregistrer"></td>
+                </tr>
+            </table>
+        </form>
+    </fieldset>
+</body>
+</html>
+ {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

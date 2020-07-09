@@ -1,0 +1,16 @@
+
+<h1>Liste des reservations</h1>
+<table border="1">
+    <tr>
+        <th>Date</th>
+        <th>Nombre de personnes</th>
+
+    </tr>
+    {% for reservation in reservations %}
+        <tr>
+            <td>{{ reservation.DateRes }}</td>
+            <td>{{ reservation.NbPersonnes }}</td>
+        </tr>
+    {% endfor %}
+
+</table>

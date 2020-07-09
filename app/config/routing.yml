@@ -1,0 +1,51 @@
+days:
+    resource: "@DaysBundle/Resources/config/routing.yml"
+    prefix:   /
+
+gestion_activite:
+    resource: "@GestionActiviteBundle/Resources/config/routing.yml"
+    prefix:   /
+
+restauration:
+    resource: "@RestaurationBundle/Resources/config/routing.yml"
+    prefix:   /restaurant
+
+voyage_organise:
+    resource: "@VoyageOrganiseBundle/Resources/config/routing.yml"
+    prefix:   /vo
+
+hebergement:
+    resource: "@HebergementBundle/Resources/config/routing.yml"
+    prefix:   /heb
+
+user:
+    resource: "@UserBundle/Resources/config/routing.yml"
+    prefix:   /
+fos_user_security:
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+fos_user_profile:
+    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
+    prefix: /profile
+fos_user_register:
+    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
+    prefix: /register
+fos_user_resetting:
+    resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
+    prefix: /resetting
+fos_user_change_password:
+    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
+    prefix: /profile
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+api_restaurant:
+    resource: "@RestaurationBundle/Controller/RestaurantsApiController.php"
+    type:     annotation
+    prefix:   /api/restaurant
+    methods: [GET,PUT,POST,DELETE]
+
+api_agence:
+    resource: "@RestaurationBundle/Controller/AgenceApiController.php"
+    type:     annotation
+    prefix:   /api/agence/
+    methods: [GET,PUT,POST,DELETE]

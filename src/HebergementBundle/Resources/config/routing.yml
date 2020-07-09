@@ -1,0 +1,27 @@
+hebergement_homepage:
+    path:     /22
+    defaults: { _controller: HebergementBundle:Default:index }
+hebergement_ajout:
+    path:     /ajoutHeberg
+    defaults: { _controller: HebergementBundle:Hebergement:AjouterHeberg }
+hebergement_affiche:
+    path:     /afficheHeberg
+    defaults: { _controller: HebergementBundle:Hebergement:afficherHebergement }
+hebergement_afficheuser:
+  path:     /afficheHeberguser
+  defaults: { _controller: HebergementBundle:Hebergement:afficherHebergementuser }
+hebergement_supp:
+  path:     /suppHeberg/{id}
+  defaults: { _controller: HebergementBundle:Hebergement:supprimerHebergement }
+hebergement_modif:
+  path:     /modifHeberg/{id}
+  defaults: { _controller: HebergementBundle:Hebergement:modifierHebergement }
+hebergement_reserv:
+  path:     /reservHeberg/{id}
+  defaults: { _controller: HebergementBundle:ReservationHebergement:AjouterReservationHeberg }
+reservhebergement_affiche:
+  path:     /affichereservHeberg
+  defaults: { _controller: HebergementBundle:ReservationHebergement:affRes }
+supp_reserv:
+  path:     /annulreservHeberg/{id}
+  defaults: { _controller: HebergementBundle:ReservationHebergement:AnnulerRes }

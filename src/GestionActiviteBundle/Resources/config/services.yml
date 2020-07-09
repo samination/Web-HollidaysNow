@@ -1,0 +1,4 @@
+services:
+#    gestion_activite.example:
+#        class: GestionActiviteBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

@@ -1,0 +1,162 @@
+{%  extends 'baseadmin2.html.twig' %}
+{% block contentadmin2 %}
+<div class="home">
+
+    <!-- Home Slider -->
+    <div class="home_slider_container">
+        <div class="owl-carousel owl-theme home_slider">
+
+            <!-- Slide -->
+            <div class="owl-item">
+                <div class="background_image" id="taswira2" ></div>
+                <div class="home_slider_content_container">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <div class="home_slider_content">
+                                    <div class="home_title"><h2>Let us take you away</h2></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide -->
+
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="intro">
+    <div class="intro_background" id="taswira3" ></div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="intro_container">
+                    <div class="row">
+
+                        <!-- Intro Item -->
+                        <div class="col-lg-4 intro_col">
+                            <div class="intro_item d-flex flex-row align-items-end justify-content-start">
+                                <div class="intro_icon"><img src="{{ asset('travello/images/beach.svg') }}" alt=""></div>
+                                <div class="intro_content">
+                                    <div class="intro_title">Top Destinations</div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Intro Item -->
+                        <div class="col-lg-4 intro_col">
+                            <div class="intro_item d-flex flex-row align-items-end justify-content-start">
+                                <div class="intro_icon"><img src="{{ asset('travello/images/wallet.svg') }}" alt=""></div>
+                                <div class="intro_content">
+                                    <div class="intro_title">The Best Prices</div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Intro Item -->
+                        <div class="col-lg-4 intro_col">
+                            <div class="intro_item d-flex flex-row align-items-end justify-content-start">
+                                <div class="intro_icon"><img src="{{ asset('travello/images/suitcase.svg') }}" alt=""></div>
+                                <div class="intro_content">
+                                    <div class="intro_title">Amazing Services</div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <h1>Activite1s list</h1>
+
+    <table id="example">
+        <thead>
+            <tr>
+                <th>Idactivite</th>
+                <th>Nom</th>
+                <th>Type</th>
+                <th>Adresse</th>
+                <th>Pays</th>
+                <th>Region</th>
+                <th>Description</th>
+                <th>Prix</th>
+                <th>Placedisponible</th>
+                <th>Actions</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for activite1 in activite1s %}
+            <tr>
+                <td><a href="{{ path('afficher_activite', { 'idActivite': activite1.idActivite }) }}">{{ activite1.idActivite }}</a></td>
+                <td>{{ activite1.nom }}</td>
+                <td>{{ activite1.type }}</td>
+                <td>{{ activite1.adresse }}</td>
+                <td>{{ activite1.pays }}</td>
+                <td>{{ activite1.region }}</td>
+                <td>{{ activite1.description }}</td>
+                <td>{{ activite1.prix }}</td>
+                <td>{{ activite1.placedisponible }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a class="btn btn-success" href="{{ path('afficher_activite2', { 'idActivite': activite1.idActivite }) }}">show</a>
+                        </li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                <li>
+                            <a class="btn btn-success" href="{{ path('moidifier_activite', { 'idActivite': activite1.idActivite }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('ajouter_activite') }}">Create a new activite1</a>
+        </li>
+    </ul>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br><br>
+    <br>
+    <br>
+    <br>
+
+
+{% endblock %}
+
+    {% block Scripts %}
+        <!-- Insert this at the end of your body element, but before the closing tag -->
+        <script src="{{ asset('bundles/datatables/js/datatables.js') }}"></script>
+        <script>
+            $(document).ready(function() {
+                $('#example').dataTable( {
+                    "language": {
+                        "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
+                    }
+                } );
+            } );
+        </script>
+    {% endblock %}

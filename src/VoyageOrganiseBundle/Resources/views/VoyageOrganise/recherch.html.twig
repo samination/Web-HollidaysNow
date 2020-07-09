@@ -1,0 +1,21 @@
+
+{% for s in voyageorganise %}
+
+    <ul>
+        <li>
+
+            <h3 style="color:cadetblue ">{{ s.paysDestination }}</h3>
+
+
+
+
+
+                <a href="{{ path('voyageorganise_affiche',{'paysDestination':s.paysDestination} ) }}" class="button button--nina" data-text="Profile" data-toggle="modal" data-target="#myModal">
+                    <span>P</span>
+                </a>
+
+        </li>
+
+
+    </ul>
+{% endfor %}

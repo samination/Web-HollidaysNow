@@ -1,0 +1,97 @@
+{% extends 'baseadmin.html.twig' %}
+ {% block contentadmin %}
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+
+<html>
+<h1>Liste des restaurants</h1>
+
+{% if is_granted("ROLE_AGENT") %}
+<h2><a href="{{ path('ajouter') }}">Ajouter Restaurent</a></h2>
+{% endif %}
+<ul class="tags-list">
+
+        <li>
+            <a name="Tunisienne"  id="xxxTunisienne" href="#">Tunisienne</a>
+            <a name="Italienne"  id="xxxItalienne" href="#">Italienne</a>
+            <a name="Libanaise"  id="xxxLibanaise" href="#">Libanaise</a>
+            <a name="Asiatique"  id="xxxAsiatique" href="#">Asiatique</a>
+            <a name="Française"  id="xxxFrançaise" href="#">Française</a>
+        </li>
+
+</ul>
+
+<ul>
+
+    <div class="product-wishlist-remove">
+
+        <a name="" id="xxx" class="btn btn-ghost btn-sm" href="#"><i class="fa fa-times"></i> Annuler</a>
+    </div>
+</ul>
+<div  id="res">
+    <table border="1">
+        <tr>
+            <th>Nom</th>
+            <th>Adresse</th>
+            <th>Nombre de places</th>
+            <th>Spécialité</th>
+            <th>Type</th>
+            <th>Actions</th>
+        </tr>
+
+        {% for restaurant in restaurants %}
+        <tr>
+            <td>{{ restaurant.NomResto }}</td>
+            <td>{{ restaurant.AdresseResto }}</td>
+            <td>{{ restaurant.NbPlacesTotResto }}</td>
+            <td>{{ restaurant.SpecialiteResto }}</td>
+            <td>{{ restaurant.TypeResto }}
+            <td> <a href="{{ path ('supprimer', {'id':restaurant.IdResto})}}">Supprimer</a>
+                <a href="{{ path ('modifier', {'id':restaurant.IdResto})}}">Mise à jour</a></td>
+        </tr>
+        {% endfor %}
+
+    </table>
+    </div>
+    <a href="{{ path ('RechercheRestaurant')}}">Rechercher</a>
+
+
+<script src="{{ asset('bundles/jquery-3.3.1.min.js') }}"></script>
+
+<script src="{{ asset('travello/styles/bootstrap4/bootstrap.min.js') }}"></script>
+<script>
+
+    $('[id^=xxx]').click(function(){
+
+        $.ajax({
+            type: "POST",
+            url: "{{ path('recherche_resto') }}",
+            data: {'btnval': true, 'text':$(this).attr('name')},
+            success: function (data) {
+
+                console.log(data);
+
+                $("#res").html(data);
+
+
+            }
+        });
+
+    });
+
+</script>
+</body>
+</html>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+ {% endblock %}

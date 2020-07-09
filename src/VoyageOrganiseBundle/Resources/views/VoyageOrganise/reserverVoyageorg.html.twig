@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+{% block body2 %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+{%set flashbag_notices=app.session.flashbag.get('notice')%}
+{%if flashbag_notices is not empty%}
+    <center><ul class="error" >{%for notice in flashbag_notices%}
+            {{notice}}
+        {%endfor%}
+    </ul></center>{%endif%}
+<h1>Reserver un voyage organisé</h1>
+
+{{ form_start(form) }}
+{{ form_end(form) }}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+{% endblock %}
+

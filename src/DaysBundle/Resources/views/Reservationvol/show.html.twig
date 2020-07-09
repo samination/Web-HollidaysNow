@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Reservationvol</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Idreservation</th>
+                <td>{{ reservationvol.idReservation }}</td>
+            </tr>
+            <tr>
+                <th>Idagence</th>
+                <td>{{ reservationvol.idagence }}</td>
+            </tr>
+            <tr>
+                <th>Idclient</th>
+                <td>{{ reservationvol.idclient }}</td>
+            </tr>
+            <tr>
+                <th>Nbplace</th>
+                <td>{{ reservationvol.nbplace }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ reservationvol.prix }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('reservationvol_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('reservationvol_edit', { 'idReservation': reservationvol.idReservation }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,33 @@
+Reservationvol:
+    type: entity
+    table: reservationvol
+    id:
+        idReservation:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_reservation
+            generator:
+                strategy: IDENTITY
+    fields:
+        idVol:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: Id_vol
+        idUser:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: Id_user
+        idAgence:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: Id_agence
+    lifecycleCallbacks: {  }

@@ -1,0 +1,81 @@
+Agence:
+    type: entity
+    table: agence
+    id:
+        idAgence:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: Id_agence
+            generator:
+                strategy: IDENTITY
+    fields:
+        nomAgence:
+            type: string
+            nullable: false
+            length: 60
+            options:
+                fixed: false
+            column: Nom_agence
+        emailAgence:
+            type: string
+            nullable: false
+            length: 60
+            options:
+                fixed: false
+            column: Email_agence
+        mdpAgence:
+            type: string
+            nullable: false
+            length: 60
+            options:
+                fixed: false
+            column: Mdp_agence
+        adresseAgence:
+            type: string
+            nullable: false
+            length: 60
+            options:
+                fixed: false
+            column: Adresse_agence
+        telephoneAgence:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: Telephone_agence
+        faxAgence:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: Fax_agence
+        roleAgence:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+            column: Role_agence
+        connecterAgence:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+            column: Connecter_agence
+        verifier:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+        bloquer:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+    lifecycleCallbacks: {  }

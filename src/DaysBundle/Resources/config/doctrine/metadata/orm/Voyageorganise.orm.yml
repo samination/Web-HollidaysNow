@@ -1,0 +1,73 @@
+Voyageorganise:
+    type: entity
+    table: voyageorganise
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        prixVoyage:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: prix_voyage
+        dateDepart:
+            type: date
+            nullable: false
+            column: date_depart
+        dateRetour:
+            type: date
+            nullable: false
+            column: date_retour
+        origine:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+        paysDestination:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+            column: pays_destination
+        villeDestination:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+            column: ville_destination
+        nbPlaces:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: nb_places
+        hotel:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+        idAgence:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: id_agence
+        nomAgence:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+            column: nom_agence
+    lifecycleCallbacks: {  }

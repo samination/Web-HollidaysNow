@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br><br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h1>Reservationactivite1s list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Idreservationa</th>
+                <th>Idagence</th>
+                <th>Idclient</th>
+                <th>Nbplace</th>
+                <th>Prix</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for reservationActivite1 in reservationActivite1s %}
+            <tr>
+                <td><a href="{{ path('afficher_une_reservation', { 'idReservationa': reservationActivite1.idReservationa }) }}">{{ reservationActivite1.idReservationa }}</a></td>
+                <td>{{ reservationActivite1.idagence }}</td>
+                <td>{{ reservationActivite1.idclient }}</td>
+                <td>{{ reservationActivite1.nbplace }}</td>
+                <td>{{ reservationActivite1.prix }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('afficher_une_reservation', { 'idReservationa': reservationActivite1.idReservationa }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('moidifier_reservation_act', { 'idReservationa': reservationActivite1.idReservationa }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('ajouter_reservation_act') }}">Create a new reservationActivite1</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <br>
+    <br><br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+<h1>Activite1s list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Idactivite</th>
+                <th>Nom</th>
+                <th>Type</th>
+                <th>Adresse</th>
+                <th>Pays</th>
+                <th>Region</th>
+                <th>Description</th>
+                <th>Prix</th>
+                <th>Placedisponible</th>
+                <th>Valider</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for activite1 in activite1s %}
+
+            <tr>
+                <td><a href="{{ path('afficher_activite', { 'idActivite': activite1.idActivite }) }}">{{ activite1.idActivite }}</a></td>
+                <td>{{ activite1.nom }}</td>
+                <td>{{ activite1.type }}</td>
+                <td>{{ activite1.adresse }}</td>
+                <td>{{ activite1.pays }}</td>
+                <td>{{ activite1.region }}</td>
+                <td>{{ activite1.description }}</td>
+                <td>{{ activite1.prix }}</td>
+                <td>{{ activite1.placedisponible }}</td>
+                <td>{{ activite1.valider }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('afficher_activite', { 'idActivite': activite1.idActivite }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('moidifier_activite', { 'idActivite': activite1.idActivite }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('ajouter_activite') }}">Create a new activite1</a>
+        </li>
+    </ul>
+
+{% endblock %}

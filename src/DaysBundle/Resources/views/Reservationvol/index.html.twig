@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Reservationvols list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Idreservation</th>
+                <th>Idagence</th>
+                <th>Idclient</th>
+                <th>Nbplace</th>
+                <th>Prix</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for reservationvol in reservationvols %}
+            <tr>
+                <td><a href="{{ path('reservationvol_show', { 'idReservation': reservationvol.idReservation }) }}">{{ reservationvol.idReservation }}</a></td>
+                <td>{{ reservationvol.idagence }}</td>
+                <td>{{ reservationvol.idclient }}</td>
+                <td>{{ reservationvol.nbplace }}</td>
+                <td>{{ reservationvol.prix }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('reservationvol_show', { 'idReservation': reservationvol.idReservation }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('reservationvol_edit', { 'idReservation': reservationvol.idReservation }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('reservationvol_new') }}">Create a new reservationvol</a>
+        </li>
+    </ul>
+{% endblock %}

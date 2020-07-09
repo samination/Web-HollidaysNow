@@ -1,0 +1,215 @@
+{%  extends 'base.html.twig' %}
+{% block body %}
+    <div class="home">
+
+        <!-- Home Slider -->
+        <div class="home_slider_container">
+            <div class="owl-carousel owl-theme home_slider">
+
+                <!-- Slide -->
+                <div class="owl-item">
+                    <div class="background_image" id="taswira2" ></div>
+                    <div class="home_slider_content_container">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="home_slider_content">
+                                        <div class="home_title"><h2>Let us take you away</h2></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide -->
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="intro">
+        <div class="intro_background" id="taswira3" ></div>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="intro_container">
+                        <div class="row">
+
+                            <!-- Intro Item -->
+                            <div class="col-lg-4 intro_col">
+                                <div class="intro_item d-flex flex-row align-items-end justify-content-start">
+                                    <div class="intro_icon"><img src="{{ asset('travello/images/beach.svg') }}" alt=""></div>
+                                    <div class="intro_content">
+                                        <div class="intro_title">Top Destinations</div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Intro Item -->
+                            <div class="col-lg-4 intro_col">
+                                <div class="intro_item d-flex flex-row align-items-end justify-content-start">
+                                    <div class="intro_icon"><img src="{{ asset('travello/images/wallet.svg') }}" alt=""></div>
+                                    <div class="intro_content">
+                                        <div class="intro_title">The Best Prices</div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Intro Item -->
+                            <div class="col-lg-4 intro_col">
+                                <div class="intro_item d-flex flex-row align-items-end justify-content-start">
+                                    <div class="intro_icon"><img src="{{ asset('travello/images/suitcase.svg') }}" alt=""></div>
+                                    <div class="intro_content">
+                                        <div class="intro_title">Amazing Services</div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="w3-row-padding w3-margin-top">
+        {% for vol in vols %}
+
+            <div class="w3-third">
+                <div class="w3-card">
+                    <img src="{{ asset('avion-aterrizando.jpg') }}" style="width:100%">
+                    <div class="w3-container">
+                        <ul>
+                            <li>
+                        <h4>{{ vol.villeDepart }}</h4>
+                            </li>
+                            <li>
+                        <h4>{{ vol.villeArrive }}</h4>
+                                <h4>{{ vol.prix }} (€)</h4>
+                                <a class="btn btn-outline-success"  href="{{ path('ajouter_reservation_vol', { 'idVol': vol.idVol }) }}">Reserver</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <ul>
+        <li>
+            <a   style="text-align:center">Euro</a>
+        </li>
+    </ul>
+    <ul>
+        <li>
+            <a href="{{ path('Index2') }}" style="text-align: right">US Dollars</a>
+        </li>
+    </ul>
+    <ul>
+        <li>
+            <a href="{{ path('Index3') }}" style="text-align: left">Dinars Tunisien</a>
+        </li>
+    </ul>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <form id="message-form">
+        <input type='text' id='message-text'>
+        <input type="submit" value="envoyer">
+    </form>
+
+
+    <br>
+    <br>
+    <br>
+
+    <br>
+    <br>
+    <br>
+
+
+
+
+
+{% endblock %}
+{% block Scripts %}
+<script>
+    const tokenProvider = new Chatkit.TokenProvider({
+        url: "https://us1.pusherplatform.io/services/chatkit_token_provider/v1/1ca53d87-4181-4d0a-9a1f-b3c1a79add1e/token"
+    });
+    const chatManager = new Chatkit.ChatManager({
+        instanceLocator: "v1:us1:1ca53d87-4181-4d0a-9a1f-b3c1a79add1e",
+        userId: "posteur",
+        tokenProvider: tokenProvider
+    });
+
+    chatManager
+        .connect()
+        .then(currentUser => {
+            currentUser.subscribeToRoom({
+                roomId: currentUser.rooms[0].id,
+                hooks: {
+                    onMessage: message => {
+                        const ul = document.getElementById("message-list");
+                        const li = document.createElement("li");
+                        li.appendChild(
+                            document.createTextNode(`${message.senderId}: ${message.text}`)
+                        );
+                        ul.appendChild(li);
+                    }
+                },
+                messageLimit: 0
+            });
+
+            const form = document.getElementById("message-form");
+            form.addEventListener("submit", e => {
+                e.preventDefault();
+                const input = document.getElementById("message-text");
+                currentUser.sendMessage({
+                    text: input.value,
+                    roomId: currentUser.rooms[0].id
+                });
+                input.value = "";
+            });
+        })
+        .catch(error => {
+            console.error("error:", error);
+        });
+</script>
+{% endblock %}

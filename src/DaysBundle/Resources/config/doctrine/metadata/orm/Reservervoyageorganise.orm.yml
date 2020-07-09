@@ -1,0 +1,33 @@
+Reservervoyageorganise:
+    type: entity
+    table: reservervoyageorganise
+    id:
+        idReservation:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: Id_reservation
+            generator:
+                strategy: IDENTITY
+    fields:
+        idVoyageorganise:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: Id_voyageorganise
+        idUser:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: id_user
+        idAgence:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: id_agence
+    lifecycleCallbacks: {  }

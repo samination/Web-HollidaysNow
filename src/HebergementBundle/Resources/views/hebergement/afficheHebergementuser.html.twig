@@ -1,0 +1,117 @@
+{% extends 'base.html.twig' %}
+{% block body2 %}
+  <html>  <body>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h1 class="titr">Liste des hebergements</h1>
+        {%set flashbag_notices=app.session.flashbag.get('notice')%}
+        {%if flashbag_notices is not empty%}
+            <center><ul class="error" >{%for notice in flashbag_notices%}
+                    {{notice}}
+                {%endfor%}
+            </ul></center>{%endif%}
+        {%set flashbag_notices=app.session.flashbag.get('info')%}
+        {%if flashbag_notices is not empty%}
+            <center><ul class="success" >{%for info in flashbag_notices%}
+                    {{info}}
+                {%endfor%}
+            </ul></center>{%endif%}
+        <table id="customers">
+            <tr>
+                <th>Id</th>
+                <th>Id agence</th>
+                <th>Nom agence</th>
+                <th>Type hebergement</th>
+                <th>Nom hebergement</th>
+                <th>Nombre d'étoiles</th>
+                <th>Adresse hébergement</th>
+                <th>Nombre de chambres</th>
+                <th>Prix chambre single</th>
+                <th>Prix chambre double</th>
+                <th>Taux pension demi</th>
+                <th>Taux pension complete</th>
+                <th>Numero de telephone</th>
+                <th>Description</th>
+                <th>Image</th>
+
+            </tr>
+            {% for hebergement in hebergement %}
+                <tr>
+                    <td>
+                        {{ hebergement.idHebergement }}
+                    </td>
+                    <td>
+                        {{ hebergement.idAgence }}
+                    </td>
+                    <td>
+                        {{ hebergement.nomAgence }}
+                    </td>
+                    <td>
+                        {{ hebergement.typeHebergement }}
+                    </td>
+                    <td>
+                        {{ hebergement.nomHebergement }}
+                    </td>
+                    <td>
+                        {{ hebergement.nombreEtoile }}
+                    </td>
+
+                    <td>
+                        {{ hebergement.adresseHebergement }}
+                    </td>
+                    <td>
+                        {{ hebergement.nombreChambre }}
+                    </td>
+                    <td>
+                        {{ hebergement.prixSingle }}
+                    </td>
+                    <td>
+                        {{ hebergement.prixDouble }}
+                    </td>
+                    <td>
+                        {{ hebergement.tauxDemi }}
+                    </td>
+                    <td>
+                        {{ hebergement.tauxComplet }}
+                    </td>
+                    <td>
+                        {{ hebergement.tel }}
+                    </td>
+                    <td>
+                        {{ hebergement.description }}
+                    </td>
+                    <td>
+                        <img src="{{ asset('resources/'  ~ hebergement.image )  }}" width="200" height="200">
+                    </td>
+
+
+                    {% if app.user %}
+                    <td><a href="{{ path('hebergement_reserv',{'id':hebergement.idHebergement}) }}">Reserver</a></td>
+            {% else %}
+                <td><a href="{{ path('fos_user_security_login') }}">Reserver</a></td>
+                    {% endif %}
+
+
+
+                </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </body></html>
+{% endblock %}
+
+
+
+

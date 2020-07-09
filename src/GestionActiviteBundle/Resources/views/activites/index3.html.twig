@@ -1,0 +1,31 @@
+{%  extends 'baseadmin.html.twig' %}
+{% block contentadmin %}
+
+
+
+        {% for activite1 in activite1s %}
+            <div class="w3-row w3-margin">
+
+                <div class="w3-third">
+                    <img src="{{ asset('parc-attraction-acceiul.jpg') }}" style="width:100%;min-height:200px">
+                </div>
+                <div class="w3-twothird w3-container">
+                    <h2>{{ activite1.nom }}</h2>
+                    <p>
+                        {{ activite1.description }}  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </p>
+                    <h4>
+                        prix: {{ activite1.prix }} (Dt)
+                    </h4>
+
+                    <a class="btn btn-outline-success" href="{{ path('valider_activite', { 'idActivite': activite1.idActivite }) }}">Valider</a>
+
+
+                </div>
+
+            </div>
+
+        {% endfor %}
+
+
+{% endblock %}

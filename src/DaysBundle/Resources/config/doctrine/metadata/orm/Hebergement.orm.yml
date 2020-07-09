@@ -1,0 +1,102 @@
+Hebergement:
+    type: entity
+    table: hebergement
+    id:
+        idhebergement:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: idHebergement
+            generator:
+                strategy: IDENTITY
+    fields:
+        idagence:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: idAgence
+        nomagence:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+            column: nomAgence
+        typeHebergement:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+            column: type_Hebergement
+        nomHebergement:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+            column: nom_Hebergement
+        nombreEtoile:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: nombre_etoile
+        adresseHebergement:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+            column: Adresse_Hebergement
+        nombreChambre:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: nombre_chambre
+        prixSingle:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: prix_single
+        prixDouble:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: prix_double
+        tauxDemi:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: taux_demi
+        tauxComplet:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: taux_complet
+        tel:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+        description:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+        image:
+            type: string
+            nullable: true
+            length: 225
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

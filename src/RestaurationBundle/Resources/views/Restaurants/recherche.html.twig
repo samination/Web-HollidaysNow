@@ -1,0 +1,26 @@
+<table class="table" border="1">
+    <tr>
+        <th>Nom</th>
+        <th>Adresse</th>
+        <th>Nombre de places</th>
+        <th>Spécialité</th>
+        <th>Type</th>
+        <th>Action</th>
+    </tr>
+
+    {% for restaurant in restaurants %}
+        <tr>
+            <td>{{ restaurant.NomResto }}</td>
+            <td>{{ restaurant.AdresseResto }}</td>
+            <td>{{ restaurant.NbPlacesTotResto }}</td>
+            <td>{{ restaurant.SpecialiteResto }}</td>
+            <td>{{ restaurant.TypeResto }}
+                {% if is_granted("ROLE_AGENT") %}
+            <td> <a href="{{ path ('supprimer', {'id':restaurant.IdResto})}}">Supprimer</a>
+                <a href="{{ path ('modifier', {'id':restaurant.IdResto})}}">Mise à jour</a></td>
+            {% else %}
+                <td> <a href="{{ path ('ajouter_reservation', {'id':restaurant.IdResto})}}">Réserver dans ce restaurant</a></td>
+            {% endif %}
+        </tr>
+    {% endfor %}
+</table>

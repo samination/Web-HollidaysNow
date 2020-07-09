@@ -1,0 +1,191 @@
+{% extends 'baseadmin2.html.twig' %}
+ {% block contentadmin2 %}
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+{% block body %}
+
+    <h1>Liste des voyages organisés</h1>
+    {%set flashbag_notices=app.session.flashbag.get('notice')%}
+    {%if flashbag_notices is not empty%}
+        <center><ul class="error" >{%for notice in flashbag_notices%}
+                {{notice}}
+            {%endfor%}
+        </ul></center>{%endif%}
+    {%set flashbag_notices=app.session.flashbag.get('info')%}
+    {%if flashbag_notices is not empty%}
+        <center><ul class="success" >{%for info in flashbag_notices%}
+                {{info}}
+            {%endfor%}
+        </ul></center>{%endif%}
+    <div>
+
+    </div>
+
+
+
+    <br><br><br>
+
+    <form action="{{ path('recherche_voyagepays')}}" method="POST">
+        <div class="search-sidebar">
+            <div class="row">
+                <div class="form-search clearfix">
+                    <div class="form-field col-md-12">
+                        <label for="paysDestination"><span></span> </label>
+                        <input  type="text" id="autocomplete" name="paysDestination"  class="form-control">
+                    </div>
+
+
+                    <div class="form-submit col-md-12">
+                        <button type="submit" class="awe-btn awe-btn-medium awe-search">Search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <p>
+        <em> <h5 style="color: #88357a">{% for label, voyageorganise in app.flashes %}
+                    {% for voyage in voyageorganise %}
+                        <div class="flash-{{ label }}">
+                            {{ voyage }}
+                        </div>
+                    {% endfor %}
+                {% endfor %}</h5></em>
+    </p>
+
+
+    <table border="1">
+        <tr>
+            <th>Id</th>
+            <th>Prix voyage</th>
+            <th>Date depart</th>
+            <th>date Retour</th>
+            <th>origine</th>
+            <th>pays Destination</th>
+            <th>villeDestination</th>
+            <th>nbPlaces</th>
+            <th>hotel</th>
+            <th>idAgence</th>
+            <th>nomAgence</th>
+            <th>Image</th>
+
+        </tr>
+        {% for voyageorganise in voyageorganise %}
+            <tr>
+                <td>
+                    {{ voyageorganise.id }}
+                </td>
+                <td>
+                    {{ voyageorganise.prixVoyage }}
+                </td>
+                <td>
+                    {{ voyageorganise.dateDepart | date}}
+                </td>
+                <td>
+                    {{ voyageorganise.dateRetour | date}}
+                </td>
+                <td>
+                    {{ voyageorganise.origine }}
+                </td>
+                <td>
+                    {{ voyageorganise.paysDestination }}
+                </td>
+
+                <td>
+                    {{ voyageorganise.villeDestination }}
+                </td>
+                <td>
+                    {{ voyageorganise.nbPlaces }}
+                </td>
+                <td>
+                    {{ voyageorganise.hotel }}
+                </td>
+                <td>
+                    {{ voyageorganise.idAgence }}
+                </td>
+                <td>
+                    {{ voyageorganise.nomAgence }}
+                </td>
+
+
+                <td>
+                    <img src="{{ asset('resources/'  ~ voyageorganise.image )  }}" width="200" height="200">
+                </td>
+                <td>
+                    <a href="{{ path('voyageorganise_supp',{'id':voyageorganise.id}) }}" >Supprimer</a></td>
+                <td><a href="{{ path('voyageorganise_modif',{'id':voyageorganise.id}) }}">Modifier</a></td>
+                <td><ul><li>"{{ socialButtons( {'twitter':false,'googleplus':false, 'facebook':false, 'linkedin':false} ) }}"</li>
+                        <li>"{{ socialButtons( {'twitter':false,'googleplus':false, 'pinterest':false, 'linkedin':false} ) }}"</li></ul></td>
+
+
+
+
+            </tr>
+
+        {% endfor %}
+    </table>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQkO9t0ugd5cHC12zbNh6uNGCVlozspIg&signed_in=true&libraries=places&callback=initAutocomplete"
+            async defer></script>
+
+
+    <script>
+        // This example displays an address form, using the autocomplete feature
+        // of the Google Places API to help users fill in the information.
+        var placeSearch, autocomplete;
+        var componentForm = {
+            locality: 'long_name',
+            administrative_area_level_1: 'short_name',
+            postal_code: 'short_name'
+        };
+        function initAutocomplete() {
+            // Create the autocomplete object, restricting the search to geographical
+            // location types.
+            autocomplete = new google.maps.places.Autocomplete(
+                /** @type {!HTMLInputElement} */(document.getElementById('autocompletee')),
+                {types: ['geocode']});
+            // When the user selects an address from the dropdown, populate the address
+            // fields in the form.
+            autocomplete.addListener('place_changed', fillInAddress);
+        }
+        // [START region_fillform]
+        function fillInAddress() {
+            // Get the place details from the autocomplete object.
+            var place = autocomplete.getPlace();
+            for (var component in componentForm) {
+                document.getElementById(component).value = '';
+                document.getElementById(component).disabled = false;
+            }
+            // Get each component of the address from the place details
+            // and fill the corresponding field on the form.
+            for (var i = 0; i < place.address_components.length; i++) {
+                var addressType = place.address_components[i].types[0];
+                if (componentForm[addressType]) {
+                    var val = place.address_components[i][componentForm[addressType]];
+                    document.getElementById(addressType).value = val;
+                }
+            }
+        }
+    </script>
+
+{% endblock body %}
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+
+
+
+ {% endblock %}

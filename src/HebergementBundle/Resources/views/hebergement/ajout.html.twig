@@ -1,0 +1,99 @@
+{% extends 'baseadmin2.html.twig' %}
+ {% block contentadmin2 %}
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+
+<h1>Ajouter un hebergement</h1>
+
+{%set flashbag_notices=app.session.flashbag.get('notice')%}
+{%if flashbag_notices is not empty%}
+<center><ul class="error" >{%for notice in flashbag_notices%}
+    {{notice}}
+    {%endfor%}
+</ul></center>{%endif%}
+{%set flashbag_notices=app.session.flashbag.get('info')%}
+{%if flashbag_notices is not empty%}
+    <center><ul class="success" >{%for info in flashbag_notices%}
+            {{info}}
+        {%endfor%}
+    </ul></center>{%endif%}
+{{ form_start(form) }}
+<table>
+
+
+
+<tr><td>{{ form_label(form.nomagence) }}</td>
+  <td>{{ form_widget(form.nomagence, { 'id': 'nomagence' }) }}</td></tr>
+
+    <tr>
+        <td> {{ form_label(form.typeHebergement) }}</td>
+        <td> {{ form_widget(form.typeHebergement, { 'id': 'typeHebergement' }) }}</td>
+    </tr>
+
+    <tr><td>{{  form_label(form.nomHebergement) }}</td>
+        <td>{{ form_widget(form.nomHebergement, { 'id': 'nomHebergement' }) }}</td></tr>
+    <tr><td></td></tr>
+    <tr><td></td></tr>
+    <tr><td></td></tr>
+
+<tr><td>{{ form_label(form.nombreEtoile) }}</td>
+    <td> <div class="range">
+            {{ form_widget(form.nombreEtoile, { 'id': 'slider' }) }}
+        </div>
+
+        <ul class="range-labels">
+            <li class="active selected">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+
+        </ul></td></tr>
+
+
+
+    <tr><td></td></tr>
+    <tr><td></td></tr>
+    <tr><td></td></tr>
+
+<tr><td>{{ form_label(form.adresseHebergement) }}</td>
+    <td>{{ form_widget(form.adresseHebergement, { 'id': 'adresseHebergement' }) }}</td></tr>
+<tr><td>{{ form_label(form.nombreChambre) }}</td>
+    <td>{{ form_widget(form.nombreChambre, { 'id': 'nombreChambre' }) }}</td></tr>
+<tr><td>{{ form_label(form.prixSingle) }}</td>
+    <td>{{ form_widget(form.prixSingle, { 'id': 'prixSingle' }) }}</td></tr>
+<tr><td>{{ form_label(form.prixDouble) }}</td>
+    <td>{{ form_widget(form.prixDouble, { 'id': 'prixDouble' }) }}</td></tr>
+<tr><td>{{ form_label(form.tauxDemi) }}</td>
+    <td>{{ form_widget(form.tauxDemi, { 'id': 'tauxDemi' }) }}</td></tr>
+<tr><td>{{ form_label(form.tauxComplet) }}</td>
+    <td>{{ form_widget(form.tauxComplet, { 'id': 'tauxComplet' }) }}</td></tr>
+<tr><td>{{ form_label(form.tel) }}</td>
+    <td>{{ form_widget(form.tel, { 'id': 'tel' }) }}</td></tr>
+<tr><td>{{ form_label(form.description) }}</td>
+    <td>{{ form_widget(form.description, { 'id': 'description' }) }}</td></tr>
+<tr><td>{{ form_label(form.image) }}</td>
+    <td> {{ form_widget(form.image, { 'id': 'image' }) }}</td></tr>
+    <tr><td>{{ form_label(form.save) }}</td>
+        <td>{{ form_widget(form.save, { 'id': 'save' }) }}</td></tr>
+
+</table>
+{{ form_end(form) }}
+
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+
+
+{% endblock %}

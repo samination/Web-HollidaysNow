@@ -1,0 +1,33 @@
+ReservationHebergement:
+    type: entity
+    table: reservation_hebergement
+    id:
+        idreservationh:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: idReservationh
+            generator:
+                strategy: IDENTITY
+    fields:
+        idhebergement:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: idHebergement
+        idutilisateur:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: idUtilisateur
+        idagence:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: idAgence
+    lifecycleCallbacks: {  }

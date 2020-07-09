@@ -1,0 +1,45 @@
+restauration_homepage:
+    path:     /33
+    defaults: { _controller: RestaurationBundle:Default:index }
+
+afficher:
+    path:     /afficher
+    defaults: { _controller: RestaurationBundle:Restaurants:afficher }
+
+afficher_admin:
+    path:     /afficherAdmin
+    defaults: { _controller: RestaurationBundle:Restaurants:afficherAdmin }
+
+recherche_resto:
+    path:     /chercherResto
+    defaults: { _controller: RestaurationBundle:Restaurants:chercher }
+ajouter:
+    path:     /ajouter
+    defaults: { _controller: RestaurationBundle:Restaurants:ajouter }
+supprimer:
+    path:     /supprimer/{id}
+    defaults: { _controller: RestaurationBundle:Restaurants:supprimer }
+modifier:
+    path:     /modifier/{id}
+    defaults: { _controller: RestaurationBundle:Restaurants:modifier }
+RechercheRestaurant:
+    path:     /rechercher
+    defaults: { _controller: RestaurationBundle:Restaurants:rechercher }
+afficher_reservation:
+    path:     /afficherReservation
+    defaults: { _controller: RestaurationBundle:Reservations:afficherReservation }
+Reserver_Restaurant:
+      path:   /reserver
+      defaults: { _controller: RestaurationBundle:Reservations:reserver }
+ajouter_reservation:
+    path:     /ajouterReservation/{id}
+    defaults: { _controller: RestaurationBundle:Reservations:ajouterReservation }
+supprimer_reservation:
+    path:     /supprimerReservation
+    defaults: { _controller: RestaurationBundle:Reservations:supprimerReservation }
+excel:
+    path:     /excel
+    defaults: { _controller: RestaurationBundle:exel:index }
+excel_list:
+    path:     /excel_list
+    defaults: { _controller: RestaurationBundle:Restaurants:ExcelExport }

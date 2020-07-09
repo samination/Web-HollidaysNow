@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br><br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h1>Reservationactivite1</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Idreservationa</th>
+                <td>{{ reservationActivite1.idReservationa }}</td>
+            </tr>
+            <tr>
+                <th>Idagence</th>
+                <td>{{ reservationActivite1.idagence }}</td>
+            </tr>
+            <tr>
+                <th>Idclient</th>
+                <td>{{ reservationActivite1.idclient }}</td>
+            </tr>
+            <tr>
+                <th>Nbplace</th>
+                <td>{{ reservationActivite1.nbplace }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ reservationActivite1.prix }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('Afficher_les_activite_a_reser') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('moidifier_reservation_act', { 'idReservationa': reservationActivite1.idReservationa }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,154 @@
+{%  extends 'base.html.twig' %}
+{% block body %}
+    <div class="home">
+
+        <!-- Home Slider -->
+        <div class="home_slider_container">
+            <div class="owl-carousel owl-theme home_slider">
+
+                <!-- Slide -->
+                <div class="owl-item">
+                    <div class="background_image" id="taswira2" ></div>
+                    <div class="home_slider_content_container">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="home_slider_content">
+                                        <div class="home_title"><h2>Let us take you away</h2></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide -->
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="intro">
+        <div class="intro_background" id="taswira3" ></div>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="intro_container">
+                        <div class="row">
+
+                            <!-- Intro Item -->
+                            <div class="col-lg-4 intro_col">
+                                <div class="intro_item d-flex flex-row align-items-end justify-content-start">
+                                    <div class="intro_icon"><img src="{{ asset('travello/images/beach.svg') }}" alt=""></div>
+                                    <div class="intro_content">
+                                        <div class="intro_title">Top Destinations</div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Intro Item -->
+                            <div class="col-lg-4 intro_col">
+                                <div class="intro_item d-flex flex-row align-items-end justify-content-start">
+                                    <div class="intro_icon"><img src="{{ asset('travello/images/wallet.svg') }}" alt=""></div>
+                                    <div class="intro_content">
+                                        <div class="intro_title">The Best Prices</div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Intro Item -->
+                            <div class="col-lg-4 intro_col">
+                                <div class="intro_item d-flex flex-row align-items-end justify-content-start">
+                                    <div class="intro_icon"><img src="{{ asset('travello/images/suitcase.svg') }}" alt=""></div>
+                                    <div class="intro_content">
+                                        <div class="intro_title">Amazing Services</div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="w3-row-padding w3-margin-top">
+        {% for vol in vols %}
+
+            <div class="w3-third">
+                <div class="w3-card">
+                    <img src="{{ asset('avion-aterrizando.jpg') }}" style="width:100%">
+                    <div class="w3-container">
+                        <ul>
+
+                            <h4>{{ vol.villeDepart }}</h4>
+                            </li>
+                            <li>
+                                <h4>{{ vol.villeArrive }}</h4>
+                                <h4>{{ vol.prix*3.32 }} (DT)                  </h4>
+                                <a class="btn btn-outline-success"  href="{{ path('ajouter_reservation_vol', { 'idVol': vol.idVol }) }}">Reserver</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <ul>
+        <li>
+            <a href="{{ path('affiche_vol') }}"  style="text-align: unset">Euro</a>
+        </li>
+    </ul>
+    <ul>
+        <li>
+            <a href="{{ path('Index2') }}"  style="text-align: unset">US Dollars</a>
+        </li>
+    </ul>
+    <ul>
+        <li>
+            <a   style="text-align: unset">Dinars Tunisien</a>
+        </li>
+    </ul>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <p> bebeti ❤ </p>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+
+
+{% endblock %}
+{% block Scripts %}
+    <!-- Insert this at the end of your body element, but before the closing tag -->
+    <script src="{{ asset('bundles/datatables/js/datatables.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            $('#example').dataTable( {
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
+                }
+            } );
+        } );
+    </script>
+{% endblock %}

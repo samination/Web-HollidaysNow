@@ -1,0 +1,98 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block body %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <h1>Vol</h1>
+
+    <table>
+        <tbody>
+        <tr>
+            <th>Idvol</th>
+            <td>{{ vol.idVol }}</td>
+        </tr>
+        <tr>
+            <th>Datedepart</th>
+            <td>{% if vol.dateDepart %}{{ vol.dateDepart|date('Y-m-d') }}{% endif %}</td>
+        </tr>
+        <tr>
+            <th>Datearrive</th>
+            <td>{% if vol.dateArrive %}{{ vol.dateArrive|date('Y-m-d') }}{% endif %}</td>
+        </tr>
+        <tr>
+            <th>Villedepart</th>
+            <td>{{ vol.villeDepart }}</td>
+        </tr>
+        <tr>
+            <th>Villearrive</th>
+            <td>{{ vol.villeArrive }}</td>
+        </tr>
+        <tr>
+            <th>Prix</th>
+            <td>{{ vol.prix }}</td>
+        </tr>
+        <tr>
+            <th>Description</th>
+            <td>{{ vol.description }}</td>
+        </tr>
+        <tr>
+            <th>Type</th>
+            <td>{{ vol.type }}</td>
+        </tr>
+        <tr>
+            <th>Nbplaces</th>
+            <td>{{ vol.nbPlaces }}</td>
+        </tr>
+        <tr>
+            <th>Idagence</th>
+            <td>{{ vol.idAgence }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('afficher_par_id_vol') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('modifier_Vol', { 'idVol': vol.idVol }) }}">Edit</a>
+        </li>
+    </ul>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+{% endblock %}
+{% block Scripts %}
+
+
+<script src="https://js.pusher.com/4.3/pusher.min.js"></script>
+<script>
+
+    // Enable pusher logging - don't include this in production
+    Pusher.logToConsole = true;
+
+    var pusher = new Pusher('e848898269b94dea5ae2', {
+        cluster: 'eu',
+        forceTLS: true
+    });
+
+    var channel = pusher.subscribe('my-channel');
+    channel.bind('my-event', function(data) {
+        alert(JSON.stringify(data));
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,108 @@
+{%  extends 'base.html.twig' %}
+{% block body %}
+    <div class="home">
+
+        <!-- Home Slider -->
+        <div class="home_slider_container">
+            <div class="owl-carousel owl-theme home_slider">
+
+                <!-- Slide -->
+                <div class="owl-item">
+                    <div class="background_image" id="taswira2" ></div>
+                    <div class="home_slider_content_container">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="home_slider_content">
+                                        <div class="home_title"><h2>Let us take you away</h2></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide -->
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="intro">
+        <div class="intro_background" id="taswira3" ></div>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="intro_container">
+                        <div class="row">
+
+                            <!-- Intro Item -->
+                            <div class="col-lg-4 intro_col">
+                                <div class="intro_item d-flex flex-row align-items-end justify-content-start">
+                                    <div class="intro_icon"><img src="{{ asset('travello/images/beach.svg') }}" alt=""></div>
+                                    <div class="intro_content">
+                                        <div class="intro_title">Top Destinations</div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Intro Item -->
+                            <div class="col-lg-4 intro_col">
+                                <div class="intro_item d-flex flex-row align-items-end justify-content-start">
+                                    <div class="intro_icon"><img src="{{ asset('travello/images/wallet.svg') }}" alt=""></div>
+                                    <div class="intro_content">
+                                        <div class="intro_title">The Best Prices</div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Intro Item -->
+                            <div class="col-lg-4 intro_col">
+                                <div class="intro_item d-flex flex-row align-items-end justify-content-start">
+                                    <div class="intro_icon"><img src="{{ asset('travello/images/suitcase.svg') }}" alt=""></div>
+                                    <div class="intro_content">
+                                        <div class="intro_title">Amazing Services</div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        {% for activite1 in activite1s %}
+            <div class="w3-row w3-margin">
+
+                <div class="w3-third">
+                    <img src="{{ asset('parc-attraction-acceiul.jpg') }}" style="width:100%;min-height:200px">
+                </div>
+                <div class="w3-twothird w3-container">
+                    <h2>{{ activite1.nom }}</h2>
+                    <p>
+                        {{ activite1.description }}  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </p>
+                    <h4>
+                       prix: {{ activite1.prix }} (Dt)
+                    </h4>
+
+                        <a class="btn btn-outline-success" href="{{ path('ajouter_reservation_act', { 'idActivite': activite1.idActivite }) }}">Reserver</a>
+
+
+                </div>
+
+            </div>
+        {% endfor %}
+
+
+
+{% endblock %}
